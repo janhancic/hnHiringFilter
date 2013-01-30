@@ -2,6 +2,8 @@
 
 Simple bookmarklet to be used on monthly "Ask HN: Who is hiring?" threads on Hacker News. It asks you for a city (or cities) you are interested to get a job in, and then it removes all job listings that are not from that city. Nothing fancy, just a simple way to filter out all those Bay area jobs if you're not from the states :)
 
+** This is Work In Progress ** and is not usuable yet!
+
 ## License
 **MIT Licensing**
 
