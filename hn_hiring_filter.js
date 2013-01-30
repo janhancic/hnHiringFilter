@@ -1,4 +1,5 @@
 (function ( document ) {
+	var searchCity = 'london';
 
 	// jQuery equivalent selector: body > center > table > tbody > tr:eq(2) > td table:eq(1) > tbody > tr
 	var comments = null;
@@ -14,9 +15,13 @@
 
 		try {
 			// jQuery equivalent selector: 'table td:eq(2) span.comment'
-			var commentText = commentTr.querySelectorAll ( 'table td' )[2].querySelector ( 'span.comment font' );
-			console.log ( commentText.textContent );
+			var commentText = commentTr.querySelectorAll ( 'table td' )[2].querySelector ( 'span.comment' ).textContent + '';
+
+			if ( /\b(london)\b/ig.test ( commentText ) === false ) {
+				commentTr.parentNode.removeChild ( commentTr );
+			}
 		} catch ( e ) {
+			//console.log ( e.message );
 		}
 	}
 } ( document ) );
