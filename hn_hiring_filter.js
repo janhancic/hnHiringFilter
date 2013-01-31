@@ -1,6 +1,6 @@
 (function ( document ) {
 	try {
-		var comments = null;
+		var commentsTrs = null;
 		try {
 			commentsTrs = document.querySelectorAll ( 'body > center > table > tbody > tr' )[2].querySelectorAll ( 'td table' )[1].querySelectorAll ( 'tbody > tr' );
 		} catch ( e ) {
