@@ -1,35 +1,53 @@
 (function ( document ) {
-	var script = document.createElement ( 'script' );
-	script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js';
-	document.body.appendChild ( script );
-	script.onload = function () {
-		var searchCities = 'london, boston';
+	try {
+		var comments = null;
+		try {
+			commentsTrs = document.querySelectorAll ( 'body > center > table > tbody > tr' )[2].querySelectorAll ( 'td table' )[1].querySelectorAll ( 'tbody > tr' );
+		} catch ( e ) {
+			alert ( "Ooops, something is wrong. Are you sure you are on a 'Ask HN: Who is hiring?' page?" );
+			return;
+		}
+
+		var searchCities = prompt ( "Enter the cities (separated by commas) you are interested in:", localStorage.getItem ( 'hn_hiring_filter' ) );
+		searchCities = searchCities.trim ();
+		if ( searchCities === '' ) {
+			return;
+		}
+
+		localStorage.setItem ( 'hn_hiring_filter', searchCities );
+
 		searchCities = searchCities.split ( ',' );
 		for ( var i in searchCities ) {
 			searchCities[i] = searchCities[i].trim ();
 		}
 
-		$comments = $( 'body > center > table > tbody > tr:eq(2) > td table:eq(1) > tbody > tr' );
-		if ( $comments.length === 0 ) {
-			alert ( "Ooops, something is wrong. Are you sure you are on a 'Ask HN: Who is hiring?' page?" );
-			return;
-		}
+		for ( var i in commentsTrs ) {
+			var commentTr = commentsTrs[i];
 
-		$comments.each ( function () {
-			var $this = $( this );
-			var commentContent = $this.find ( 'table td:eq(2) span.comment' ).text ().toLowerCase ();
-
-			var foundCity = false;
-			for ( var i in searchCities ) {
-				if ( commentContent.indexOf ( searchCities[i] ) >= 0 ) {
-					foundCity = true;
-					break;
+			try {
+				var commentText = commentTr.innerHTML;
+				if ( !commentText ) {
+					continue;
 				}
-			}
 
-			if ( foundCity === false ) {
-				$this.hide ();
+				commentText = commentText.toLowerCase ();
+
+				var foundCity = false;
+				for ( var i in searchCities ) {
+					if ( commentText.indexOf ( searchCities[i] ) >= 0 ) {
+
+						foundCity = true;
+						break;
+					}
+				}
+
+				if ( foundCity === false ) {
+					commentTr.parentNode.removeChild ( commentTr );
+				}
+			} catch ( e ) {
 			}
-		} );
+		}
+	} catch ( e ) {
+		alert ( "Something went wrong :/ please try again!" );
 	}
 } ( document ) );
