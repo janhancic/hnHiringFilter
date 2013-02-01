@@ -12,6 +12,9 @@ Create a new bookmark with the above as the URL.
 
 Or, visit [this](http://janhancic.github.com/hnHiringFilter/) and drag the link there, into your bookmarks.
 
+## Browser support
+Works on latest version of: Chrome, Firefox, Safari & Opera.
+
 ## License
 **MIT Licensing**
 
