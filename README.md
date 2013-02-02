@@ -15,7 +15,7 @@ Or, visit [this](http://janhancic.github.com/hnHiringFilter/) and drag the link 
 ## Browser support
 Works on latest version of: Chrome, Firefox, Safari & Opera.
 
-## Bonus
+## Bonus for Chrome users
 This bookmarklet goes great with two Chrome extensions I made:
 
 - [HN Unread Comments](https://chrome.google.com/extensions/detail/fpndmkcfggkffpablcooicmihgcgalil): this will highlight jobs you haven't seen yet
