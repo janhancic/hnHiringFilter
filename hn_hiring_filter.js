@@ -1,6 +1,5 @@
 (function ( document ) {
 	try {
-		console.log ( document.location.pathname );
 		var commentsTrs = null;
 		try {
 			commentsTrs = document.querySelectorAll ( 'body > center > table > tbody > tr' )[2];
@@ -21,6 +20,8 @@
 		if ( searchCities === '' ) {
 			return;
 		}
+
+		searchCities = searchCities.toLowerCase ();
 
 		localStorage.setItem ( 'hn_hiring_filter', searchCities );
 
