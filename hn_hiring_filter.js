@@ -1,8 +1,16 @@
 (function ( document ) {
 	try {
+		console.log ( document.location.pathname );
 		var commentsTrs = null;
 		try {
-			commentsTrs = document.querySelectorAll ( 'body > center > table > tbody > tr' )[2].querySelectorAll ( 'td table' )[1].querySelectorAll ( 'tbody > tr' );
+			commentsTrs = document.querySelectorAll ( 'body > center > table > tbody > tr' )[2];
+			if ( document.location.pathname === '/x' ) {
+				// on a second/third/... page of thread
+				commentsTrs = commentsTrs.querySelectorAll ( 'td table tbody tr' );
+			} else {
+				// first page of thread
+				commentsTrs = commentsTrs.querySelectorAll ( 'td table' )[1].querySelectorAll ( 'tbody > tr' );
+			}
 		} catch ( e ) {
 			alert ( "Ooops, something is wrong. Are you sure you are on a 'Ask HN: Who is hiring?' page?" );
 			return;
