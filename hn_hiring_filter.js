@@ -25,10 +25,9 @@
 
 		localStorage.setItem ( 'hn_hiring_filter', searchCities );
 
-		searchCities = searchCities.split ( ',' );
-		for ( var i in searchCities ) {
-			searchCities[i] = searchCities[i].trim ();
-		}
+		searchCities = searchCities.split ( ',' ).map ( function ( city ) {
+			return city.trim ();
+		} );
 
 		for ( var i in commentsTrs ) {
 			var commentTr = commentsTrs[i];
