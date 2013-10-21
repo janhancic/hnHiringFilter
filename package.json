@@ -1,0 +1,31 @@
+{
+  "name": "hnHiringFilter",
+  "version": "1.0.0",
+  "description": "Simple bookmarklet to be used on monthly \"Ask HN: Who is hiring?\" threads on Hacker News.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janhancic/hnHiringFilter.git"
+  },
+  "keywords": [
+    "hn",
+    "hacker",
+    "news",
+    "hacker",
+    "jobs",
+    "ads",
+    "search"
+  ],
+  "author": {
+    "name": "Jan Hancic",
+    "email": "jan.hancic@gmail.com",
+    "url": "http://hancic.info"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/janhancic/hnHiringFilter/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4"
+  }
+}
